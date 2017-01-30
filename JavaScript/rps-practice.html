@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>RPS-Practice</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12-lg text-center">
+				<h1 id="headLine">Rock, Paper, Scissors</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12-lg text-center">
+				<h1>Oppenent</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12-lg text-center">
+				<img id="opponentPic" src="../assets/images/rps1.jpg">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12-lg text-center">
+				<img id="yourPic" src="../assets/images/rps2.png">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12-lg text-center">
+				<h1>You</h1>
+			</div>
+			<div class="col-12-lg text-center">
+				<button onclick="rock()">Rock</button>
+				<button onclick="paper()">Paper</button>
+				<button onclick="scissors()">Scissors</button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+<script type="text/javascript">
+	
+var yourChoice = "none";
+var opponentChoices = ["rock", "paper", "scissors"];
+var theirChoice
+
+function rock() {
+	yourChoice = "rock";console.log(yourChoice);shoot();imgChange();
+}
+function paper() {
+	yourChoice = "paper";console.log(yourChoice);shoot();imgChange();
+}
+function scissors() {
+	yourChoice = "scissors";console.log(yourChoice);shoot();imgChange();
+}
+function shoot() {
+	theirChoice = opponentChoices[Math.floor(Math.random()*3)];console.log(theirChoice);
+	if (yourChoice === theirChoice) {
+		console.log("you: " + yourChoice + " them: " + theirChoice + " tied");
+		document.getElementById("headLine").innerHTML = "It's a TIE";
+	} else if (yourChoice === "rock" && theirChoice === "scissors") {
+		console.log("you: " + yourChoice + " them: " + theirChoice + " you won");
+		document.getElementById("headLine").innerHTML = "You Won!!!!";
+	} else if (yourChoice === "paper" && theirChoice === "rock") {
+		console.log("you: " + yourChoice + " them: " + theirChoice + " you won");
+		document.getElementById("headLine").innerHTML = "You Won!!!!";
+	} else if (yourChoice === "scissors" && theirChoice === "paper") {
+		console.log("you: " + yourChoice + " them: " + theirChoice + " you won");
+		document.getElementById("headLine").innerHTML = "You Won!!!!";
+	} else {
+		console.log("you: " + yourChoice + " them: " + theirChoice + " you lost");
+		document.getElementById("headLine").innerHTML = "You Lost...";
+	}
+
+}
+function imgChange() {
+	document.getElementById("yourPic").src = "../assets/images/" + yourChoice + ".jpg";
+	document.getElementById("opponentPic").src = "../assets/images/" + theirChoice + ".jpg";
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
